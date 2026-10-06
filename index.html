@@ -1,113 +1,2166 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f3a6c6"><meta name="description" content="AIKATSU! ENCORE CARD BOOK">
-<link rel="manifest" href="manifest.json">
-<title>AIKATSU! ENCORE CARD BOOK Ver.2</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f3a6c6">
+<meta name="description" content="AIKATSU! ENCORE CARD BOOK">
+<title>AIKATSU! ENCORE CARD BOOK Ver.3</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;background:#fff8fc;color:#3c3040;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}
-header{background:linear-gradient(135deg,#ffd8e8,#e9ddff);padding:18px 16px;position:sticky;top:0;z-index:10;box-shadow:0 2px 12px #0001}.head{max-width:1100px;margin:auto}h1{margin:0;font-size:21px}.sub{font-size:11px;opacity:.65;margin-top:3px}.wrap{max-width:1100px;margin:auto;padding:14px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.stat,.panel,.card{background:#fff;border-radius:17px;box-shadow:0 3px 15px #0000000d}.stat{text-align:center;padding:11px}.num{font-size:23px;font-weight:850}.label{font-size:10px;opacity:.6}
-.panel{padding:14px;margin-top:12px}.panel h2{font-size:16px;margin:0 0 10px}.search{width:100%;padding:12px;border:1px solid #e8dce6;border-radius:11px;font-size:15px}.filters{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:9px}select,input[type=text]{padding:10px;border:1px solid #e8dce6;border-radius:10px;background:#fff;font:inherit}.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}button{border:0;border-radius:10px;padding:10px 13px;font:inherit;cursor:pointer;background:#f2e7ee}button.primary{background:#ef9fc2;color:#fff;font-weight:750}button.dark{background:#6f5b70;color:#fff}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:11px;margin-top:12px}.card{overflow:hidden}.thumb{aspect-ratio:3/4;background:linear-gradient(145deg,#f8ddeb,#e8e1fa);display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;color:#80677b;font-weight:750}.thumb img{width:100%;height:100%;object-fit:cover}.info{padding:10px}.code{font-size:10px;opacity:.55}.name{font-weight:800;margin:3px 0}.meta{font-size:10px;line-height:1.55;opacity:.7}.own{margin-top:8px;display:flex;justify-content:space-between;align-items:center}.badge{font-size:10px;border-radius:20px;padding:4px 7px;background:#eee}.yes{background:#ffe0eb;color:#ae3b67}.small{font-size:10px;opacity:.58;line-height:1.5}.modal{display:none;position:fixed;inset:0;background:#0008;z-index:30;align-items:flex-end;justify-content:center}.modal.open{display:flex}.sheet{width:min(720px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:22px 22px 0 0;padding:17px}.photo{width:100%;aspect-ratio:3/4;border-radius:15px;background:#f5edf3;display:flex;align-items:center;justify-content:center;overflow:hidden;margin:9px 0}.photo img{max-width:100%;max-height:100%;object-fit:contain}.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.notice{background:#fff5c9;border-radius:11px;padding:10px;font-size:11px;line-height:1.6;margin:8px 0}.result{padding:9px;border:1px solid #eadfe8;border-radius:11px;margin-top:7px;cursor:pointer}.result.sel{border:2px solid #ef9fc2;background:#fff4f8}.hidden{display:none}.empty{text-align:center;padding:45px 10px;opacity:.55}.tools{display:flex;gap:7px;flex-wrap:wrap}.file{display:none}
-@media(max-width:650px){.filters{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr}.wrap{padding:10px}}
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:#fff8fc;
+  color:#3c3040;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Hiragino Kaku Gothic ProN",
+    "Yu Gothic",
+    sans-serif;
+}
+
+header{
+  background:linear-gradient(135deg,#ffd8e8,#e9ddff);
+  padding:18px 16px;
+  position:sticky;
+  top:0;
+  z-index:10;
+  box-shadow:0 2px 12px #0001;
+}
+
+.head{
+  max-width:1100px;
+  margin:auto;
+}
+
+h1{
+  margin:0;
+  font-size:21px;
+}
+
+.sub{
+  font-size:11px;
+  opacity:.65;
+  margin-top:3px;
+}
+
+.wrap{
+  max-width:1100px;
+  margin:auto;
+  padding:14px;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+}
+
+.stat{
+  background:#fff;
+  border-radius:17px;
+  box-shadow:0 3px 15px #0000000d;
+  text-align:center;
+  padding:11px;
+}
+
+.num{
+  font-size:23px;
+  font-weight:850;
+}
+
+.label{
+  font-size:10px;
+  opacity:.6;
+}
+
+/* =========================
+   PANEL
+========================= */
+
+.panel{
+  background:#fff;
+  border-radius:17px;
+  box-shadow:0 3px 15px #0000000d;
+  padding:14px;
+  margin-top:12px;
+}
+
+.panel h2{
+  font-size:16px;
+  margin:0 0 10px;
+}
+
+.search{
+  width:100%;
+  padding:12px;
+  border:1px solid #e8dce6;
+  border-radius:11px;
+  font-size:15px;
+}
+
+.filters{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin-top:9px;
+}
+
+select,
+input[type=text]{
+  padding:10px;
+  border:1px solid #e8dce6;
+  border-radius:10px;
+  background:#fff;
+  font:inherit;
+}
+
+.btns{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:9px;
+}
+
+button{
+  border:0;
+  border-radius:10px;
+  padding:10px 13px;
+  font:inherit;
+  cursor:pointer;
+  background:#f2e7ee;
+}
+
+button.primary{
+  background:#ef9fc2;
+  color:#fff;
+  font-weight:750;
+}
+
+button.dark{
+  background:#6f5b70;
+  color:#fff;
+}
+
+button:disabled{
+  opacity:.5;
+}
+
+/* =========================
+   CARD GRID
+========================= */
+
+.grid{
+  display:grid;
+  grid-template-columns:
+    repeat(auto-fill,minmax(165px,1fr));
+  gap:11px;
+  margin-top:12px;
+}
+
+.card{
+  background:#fff;
+  border-radius:17px;
+  box-shadow:0 3px 15px #0000000d;
+  overflow:hidden;
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+.card:active{
+  transform:scale(.98);
+}
+
+/* =========================
+   THUMB
+========================= */
+
+.thumb{
+  position:relative;
+  aspect-ratio:3/4;
+  background:
+    linear-gradient(
+      145deg,
+      #f8ddeb,
+      #e8e1fa
+    );
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+  overflow:hidden;
+
+  color:#80677b;
+  font-weight:750;
+}
+
+/*
+  未所持カードの図鑑プレビュー。
+  実カード画像は保存せず、
+  カード番号＋レアリティを
+  カード風に表示する安全寄り仕様。
+*/
+
+.previewCard{
+  width:88%;
+  height:92%;
+  border-radius:13px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fff,
+      #f4e9f7
+    );
+
+  border:1px solid #ead7e8;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  opacity:.42;
+
+  box-shadow:
+    0 5px 15px #0001;
+
+  position:relative;
+}
+
+.previewStar{
+  font-size:35px;
+  margin-bottom:8px;
+}
+
+.previewId{
+  font-size:17px;
+  font-weight:900;
+}
+
+.previewRare{
+  margin-top:6px;
+  font-size:12px;
+  padding:4px 10px;
+  border-radius:20px;
+  background:#ffffffaa;
+}
+
+.lock{
+  position:absolute;
+  bottom:12px;
+  left:0;
+  right:0;
+  text-align:center;
+
+  font-size:11px;
+  font-weight:800;
+}
+
+/* 所持カード */
+
+.ownedPhoto{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* =========================
+   CARD INFO
+========================= */
+
+.info{
+  padding:10px;
+}
+
+.code{
+  font-size:10px;
+  opacity:.55;
+}
+
+.name{
+  font-weight:800;
+  margin:3px 0;
+}
+
+.meta{
+  font-size:10px;
+  line-height:1.55;
+  opacity:.7;
+}
+
+.own{
+  margin-top:8px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.badge{
+  font-size:10px;
+  border-radius:20px;
+  padding:4px 7px;
+  background:#eee;
+}
+
+.yes{
+  background:#ffe0eb;
+  color:#ae3b67;
+}
+
+.small{
+  font-size:10px;
+  opacity:.58;
+  line-height:1.5;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+  display:none;
+
+  position:fixed;
+  inset:0;
+
+  background:#0008;
+
+  z-index:30;
+
+  align-items:flex-end;
+  justify-content:center;
+}
+
+.modal.open{
+  display:flex;
+}
+
+.sheet{
+  width:min(720px,100%);
+
+  max-height:92vh;
+  overflow:auto;
+
+  background:#fff;
+
+  border-radius:
+    22px 22px 0 0;
+
+  padding:17px;
+}
+
+.photo{
+  width:100%;
+  aspect-ratio:3/4;
+
+  border-radius:15px;
+
+  background:#f5edf3;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  overflow:hidden;
+
+  margin:9px 0;
+}
+
+.photo img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+
+.row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+
+.notice{
+  background:#fff5c9;
+  border-radius:11px;
+
+  padding:10px;
+
+  font-size:11px;
+  line-height:1.6;
+
+  margin:8px 0;
+}
+
+.result{
+  padding:9px;
+
+  border:1px solid #eadfe8;
+
+  border-radius:11px;
+
+  margin-top:7px;
+
+  cursor:pointer;
+}
+
+.result.sel{
+  border:2px solid #ef9fc2;
+  background:#fff4f8;
+}
+
+.empty{
+  text-align:center;
+  padding:45px 10px;
+  opacity:.55;
+}
+
+.tools{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+}
+
+.file{
+  display:none;
+}
+
+/* =========================
+   OFFICIAL LINK
+========================= */
+
+.officialLink{
+  display:block;
+
+  margin-top:8px;
+
+  text-align:center;
+
+  font-size:10px;
+
+  color:#9b6483;
+  text-decoration:none;
+
+  padding:6px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:650px){
+
+  .filters{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .row{
+    grid-template-columns:1fr;
+  }
+
+  .wrap{
+    padding:10px;
+  }
+}
 </style>
 </head>
+
 <body>
-<header><div class="head"><h1>🌟 AIKATSU! ENCORE CARD BOOK</h1><div class="sub">MY COLLECTION / Ver.2 — PHOTO REGISTRATION</div></div></header>
+
+<header>
+  <div class="head">
+
+    <h1>
+      🌟 AIKATSU! ENCORE CARD BOOK
+    </h1>
+
+    <div class="sub">
+      MY COLLECTION / Ver.3 — CARD CATALOG
+    </div>
+
+  </div>
+</header>
+
+
 <main class="wrap">
-<section class="stats"><div class="stat"><div class="num" id="total">85</div><div class="label">カードDB</div></div><div class="stat"><div class="num" id="owned">0</div><div class="label">所持種類</div></div><div class="stat"><div class="num" id="rate">0%</div><div class="label">コンプリート率</div></div></section>
 
-<section class="panel">
-<div class="tools">
-<button class="primary" onclick="openAdd()">📷 カードを登録</button>
-<button onclick="exportData()">💾 バックアップを書き出す</button>
-<label><button>📥 バックアップを読み込む</button><input id="importFile" class="file" type="file" accept=".json"></label>
-</div>
+<!-- =========================
+     STATS
+========================= -->
+
+<section class="stats">
+
+  <div class="stat">
+    <div class="num" id="total">
+      85
+    </div>
+
+    <div class="label">
+      カードDB
+    </div>
+  </div>
+
+
+  <div class="stat">
+    <div class="num" id="owned">
+      0
+    </div>
+
+    <div class="label">
+      所持種類
+    </div>
+  </div>
+
+
+  <div class="stat">
+    <div class="num" id="rate">
+      0%
+    </div>
+
+    <div class="label">
+      コンプリート率
+    </div>
+  </div>
+
 </section>
 
+
+<!-- =========================
+     TOOLS
+========================= -->
+
 <section class="panel">
-<input id="q" class="search" placeholder="🔍 カード番号・コーデ名・ブランド・タイプ">
-<div class="filters">
-<select id="type"><option value="">タイプ：すべて</option><option>キュート</option><option>クール</option><option>セクシー</option><option>ポップ</option></select>
-<select id="brand"><option value="">ブランド：すべて</option><option>ノーブランド</option><option>エンジェリーシュガー</option><option>フューチャリングガール</option><option>スパイシーアゲハ</option><option>ドリーミークラウン</option><option>メープルリボン</option></select>
-<select id="rare"><option value="">レア度：すべて</option><option>PR</option><option>R</option><option>N</option><option>ER</option></select>
-<select id="status"><option value="">所持：すべて</option><option value="yes">所持</option><option value="no">未所持</option></select>
-</div>
+
+  <div class="tools">
+
+    <button
+      class="primary"
+      onclick="openAdd()"
+    >
+      📷 カードを登録
+    </button>
+
+
+    <button
+      onclick="exportData()"
+    >
+      💾 バックアップ
+    </button>
+
+
+    <label>
+      <button>
+        📥 復元
+      </button>
+
+      <input
+        id="importFile"
+        class="file"
+        type="file"
+        accept=".json"
+      >
+    </label>
+
+  </div>
+
 </section>
-<section id="grid" class="grid"></section>
+
+
+<!-- =========================
+     SEARCH
+========================= -->
+
+<section class="panel">
+
+  <input
+    id="q"
+    class="search"
+    placeholder="🔍 カード番号・コーデ名・ブランド・タイプ"
+  >
+
+
+  <div class="filters">
+
+    <select id="type">
+      <option value="">
+        タイプ：すべて
+      </option>
+
+      <option>キュート</option>
+      <option>クール</option>
+      <option>セクシー</option>
+      <option>ポップ</option>
+    </select>
+
+
+    <select id="brand">
+
+      <option value="">
+        ブランド：すべて
+      </option>
+
+      <option>
+        ノーブランド
+      </option>
+
+      <option>
+        エンジェリーシュガー
+      </option>
+
+      <option>
+        フューチャリングガール
+      </option>
+
+      <option>
+        スパイシーアゲハ
+      </option>
+
+      <option>
+        ドリーミークラウン
+      </option>
+
+      <option>
+        メープルリボン
+      </option>
+
+    </select>
+
+
+    <select id="rare">
+
+      <option value="">
+        レア度：すべて
+      </option>
+
+      <option>PR</option>
+      <option>R</option>
+      <option>N</option>
+      <option>ER</option>
+
+    </select>
+
+
+    <select id="status">
+
+      <option value="">
+        所持：すべて
+      </option>
+
+      <option value="yes">
+        ✓ 所持
+      </option>
+
+      <option value="no">
+        🔒 未所持
+      </option>
+
+    </select>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     CARD GRID
+========================= -->
+
+<section
+  id="grid"
+  class="grid"
+></section>
+
 </main>
 
-<div id="modal" class="modal"><div class="sheet">
-<h2 id="modalTitle">📷 カードを登録</h2>
-<div class="notice">カード写真を選ぶとプレビューできます。<b>OCR</b>は写真から「E1-01」のようなカード番号を探す補助機能です。認識できない場合は手入力でOK。</div>
-<label><button class="primary">📷 写真を撮る / 選ぶ</button><input id="photoFile" class="file" type="file" accept="image/*" capture="environment"></label>
-<div id="preview" class="photo">ここにカード写真が表示されます</div>
-<div class="btns"><button id="ocrBtn" onclick="runOCR()">🔎 OCRで番号を探す</button></div>
-<div class="row">
-<div><div class="small">カード番号</div><input id="cardId" type="text" placeholder="例：E1-01" style="width:100%"></div>
-<div><div class="small">コーデ名</div><input id="cardName" type="text" placeholder="例：オーロラキスコーデ" style="width:100%"></div>
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div
+  id="modal"
+  class="modal"
+>
+
+<div class="sheet">
+
+  <h2 id="modalTitle">
+    📷 カードを登録
+  </h2>
+
+
+  <div class="notice">
+
+    カード写真を登録すると、
+    未所持カードの図鑑表示から
+    <b>自分の写真表示</b>に切り替わります。
+
+    <br>
+
+    OCRは
+    「E1-01」
+    のようなカード番号を探す補助機能です。
+
+  </div>
+
+
+  <label>
+
+    <button class="primary">
+      📷 写真を撮る / 選ぶ
+    </button>
+
+    <input
+      id="photoFile"
+      class="file"
+      type="file"
+      accept="image/*"
+      capture="environment"
+    >
+
+  </label>
+
+
+  <div
+    id="preview"
+    class="photo"
+  >
+    ここにカード写真が表示されます
+  </div>
+
+
+  <div class="btns">
+
+    <button
+      id="ocrBtn"
+      onclick="runOCR()"
+    >
+      🔎 OCRで番号を探す
+    </button>
+
+  </div>
+
+
+  <div class="row">
+
+    <div>
+
+      <div class="small">
+        カード番号
+      </div>
+
+      <input
+        id="cardId"
+        type="text"
+        placeholder="例：E1-01"
+        style="width:100%"
+      >
+
+    </div>
+
+
+    <div>
+
+      <div class="small">
+        コーデ名
+      </div>
+
+      <input
+        id="cardName"
+        type="text"
+        placeholder="コーデ名"
+        style="width:100%"
+      >
+
+    </div>
+
+  </div>
+
+
+  <div
+    class="row"
+    style="margin-top:8px"
+  >
+
+    <select id="cardType">
+
+      <option value="">
+        タイプ未設定
+      </option>
+
+      <option>キュート</option>
+      <option>クール</option>
+      <option>セクシー</option>
+      <option>ポップ</option>
+
+    </select>
+
+
+    <select id="cardBrand">
+
+      <option value="">
+        ブランド未設定
+      </option>
+
+      <option>
+        ノーブランド
+      </option>
+
+      <option>
+        エンジェリーシュガー
+      </option>
+
+      <option>
+        フューチャリングガール
+      </option>
+
+      <option>
+        スパイシーアゲハ
+      </option>
+
+      <option>
+        ドリーミークラウン
+      </option>
+
+      <option>
+        メープルリボン
+      </option>
+
+    </select>
+
+  </div>
+
+
+  <div
+    class="row"
+    style="margin-top:8px"
+  >
+
+    <select id="cardRare">
+
+      <option value="">
+        レア度未設定
+      </option>
+
+      <option>PR</option>
+      <option>R</option>
+      <option>N</option>
+      <option>ER</option>
+
+    </select>
+
+
+    <input
+      id="memo"
+      type="text"
+      placeholder="メモ（任意）"
+    >
+
+  </div>
+
+
+  <div id="matches"></div>
+
+
+  <div
+    class="btns"
+    style="margin-top:13px"
+  >
+
+    <button
+      class="dark"
+      onclick="closeModal()"
+    >
+      キャンセル
+    </button>
+
+
+    <button
+      class="primary"
+      onclick="saveCard()"
+    >
+      ✓ コレクションに登録
+    </button>
+
+  </div>
+
 </div>
-<div class="row" style="margin-top:8px">
-<select id="cardType"><option value="">タイプ未設定</option><option>キュート</option><option>クール</option><option>セクシー</option><option>ポップ</option></select>
-<select id="cardBrand"><option value="">ブランド未設定</option><option>ノーブランド</option><option>エンジェリーシュガー</option><option>フューチャリングガール</option><option>スパイシーアゲハ</option><option>ドリーミークラウン</option><option>メープルリボン</option></select>
 </div>
-<div class="row" style="margin-top:8px">
-<select id="cardRare"><option value="">レア度未設定</option><option>PR</option><option>R</option><option>N</option><option>ER</option></select>
-<input id="memo" type="text" placeholder="メモ（任意）">
-</div>
-<div id="matches"></div>
-<div class="btns" style="margin-top:13px"><button class="dark" onclick="closeModal()">キャンセル</button><button class="primary" onclick="saveCard()">✓ コレクションに登録</button></div>
-</div></div>
+
 
 <script>
-const cards=Array.from({length:85},(_,i)=>({id:`E1-${String(i+1).padStart(2,'0')}`,name:'未設定のコーデ',type:'',brand:'',rare:['PR','R','N','ER'][i%4],set:'アンコール第1弾'}));
-let collection=JSON.parse(localStorage.getItem('aikatsu_v2_collection')||'{}');
-let photoData=''; let editingId=null;
 
-const $=id=>document.getElementById(id);
-function save(){localStorage.setItem('aikatsu_v2_collection',JSON.stringify(collection))}
+/* ==========================================================
+   AIKATSU! ENCORE Ver.3
+   E1-01 ～ E1-85
+========================================================== */
+
+
+/* =========================
+   CARD DATABASE
+========================= */
+
+const rarityMap = {
+
+  1:"PR",
+  2:"PR",
+  3:"PR",
+  4:"PR",
+
+  5:"R",
+  6:"R",
+  7:"R",
+  8:"R",
+  9:"R",
+  10:"R",
+  11:"R",
+  12:"R",
+  13:"R",
+  14:"R",
+  15:"R",
+  16:"R",
+  17:"R",
+  18:"R",
+  19:"R",
+  20:"R",
+
+  21:"N",
+  22:"N",
+  23:"N",
+  24:"N",
+  25:"N",
+  26:"N",
+  27:"N",
+  28:"N",
+  29:"N",
+
+  30:"ER",
+  31:"ER",
+  32:"ER",
+
+  33:"PR",
+  34:"PR",
+  35:"PR",
+  36:"PR",
+
+  37:"R",
+  38:"R",
+  39:"R",
+  40:"R",
+
+  41:"N",
+  42:"N",
+  43:"N",
+  44:"N",
+  45:"N",
+  46:"N",
+  47:"N",
+  48:"N",
+  49:"N",
+
+  50:"ER",
+
+  51:"PR",
+  52:"PR",
+
+  53:"R",
+  54:"R",
+  55:"R",
+  56:"R",
+  57:"R",
+  58:"R",
+  59:"R",
+
+  60:"N",
+  61:"N",
+  62:"N",
+  63:"N",
+  64:"N",
+  65:"N",
+  66:"N",
+  67:"N",
+  68:"N",
+  69:"N",
+  70:"N",
+
+  71:"PR",
+  72:"PR",
+  73:"PR",
+  74:"PR",
+  75:"PR",
+  76:"PR",
+  77:"PR",
+  78:"PR",
+  79:"PR",
+  80:"PR",
+  81:"PR",
+  82:"PR",
+
+  83:"N",
+  84:"N",
+  85:"N"
+
+};
+
+
+const cards =
+  Array.from(
+    {length:85},
+    (_,i)=>{
+
+      const number=i+1;
+
+      return {
+
+        id:
+          `E1-${String(number).padStart(2,"0")}`,
+
+        name:
+          "コーデ名未登録",
+
+        type:"",
+        brand:"",
+
+        rare:
+          rarityMap[number] || "",
+
+        set:
+          "アンコール第1弾"
+
+      };
+
+    }
+  );
+
+
+/* =========================
+   COLLECTION
+========================= */
+
+let collection =
+  JSON.parse(
+    localStorage.getItem(
+      "aikatsu_v3_collection"
+    ) || "{}"
+  );
+
+
+/*
+  Ver.2のデータがあれば移行
+*/
+
+const oldCollection =
+  localStorage.getItem(
+    "aikatsu_v2_collection"
+  );
+
+
+if(
+  oldCollection &&
+  Object.keys(collection).length===0
+){
+
+  try{
+
+    collection =
+      JSON.parse(oldCollection);
+
+    localStorage.setItem(
+      "aikatsu_v3_collection",
+      JSON.stringify(collection)
+    );
+
+  }catch(e){
+
+    console.log(
+      "旧データ移行失敗",
+      e
+    );
+
+  }
+
+}
+
+
+let photoData="";
+let editingId=null;
+
+
+/* =========================
+   HELPERS
+========================= */
+
+const $ =
+  id =>
+    document.getElementById(id);
+
+
+function save(){
+
+  localStorage.setItem(
+    "aikatsu_v3_collection",
+    JSON.stringify(collection)
+  );
+
+}
+
+
+/* =========================
+   RENDER
+========================= */
+
 function render(){
- const q=$('q').value.trim().toLowerCase(), type=$('type').value, brand=$('brand').value, rare=$('rare').value,status=$('status').value;
- const list=cards.filter(c=>{
-   const x=collection[c.id]||{};
-   const data={...c,...x};
-   return (!q||[data.id,data.name,data.brand,data.type].join(' ').toLowerCase().includes(q))
-   &&(!type||data.type===type)&&(!brand||data.brand===brand)&&(!rare||data.rare===rare)
-   &&(!status||(status==='yes'?x.count>0:!x.count));
- });
- $('grid').innerHTML=list.length?list.map(c=>{let x=collection[c.id]||{},d={...c,...x};return `<article class="card">
- <div class="thumb">${d.photo?`<img src="${d.photo}">`:`🃏<br>${d.id}`}</div>
- <div class="info"><div class="code">${d.id}　${d.rare||'—'}</div><div class="name">${d.name||'コーデ名未設定'}</div>
- <div class="meta">${d.type||'タイプ未設定'} / ${d.brand||'ブランド未設定'}<br>${d.set}</div>
- <div class="own"><span class="badge ${x.count?'yes':''}">${x.count?'✓ 所持':'未所持'}</span><b>${x.count||0}枚</b></div>
- <button class="primary" style="width:100%;margin-top:7px" onclick="editCard('${d.id}')">${x.count?'✎ 編集':'＋ 登録'}</button></div></article>`}).join(''):`<div class="empty">条件に一致するカードがありません</div>`;
- const n=Object.values(collection).filter(x=>x.count>0).length;$('owned').textContent=n;$('rate').textContent=Math.round(n/85*100)+'%';
+
+  const q =
+    $("q")
+      .value
+      .trim()
+      .toLowerCase();
+
+  const type =
+    $("type").value;
+
+  const brand =
+    $("brand").value;
+
+  const rare =
+    $("rare").value;
+
+  const status =
+    $("status").value;
+
+
+  const list =
+    cards.filter(c=>{
+
+      const x =
+        collection[c.id] || {};
+
+      const data =
+        {
+          ...c,
+          ...x
+        };
+
+
+      const searchable =
+        [
+          data.id,
+          data.name,
+          data.brand,
+          data.type,
+          data.rare
+        ]
+        .join(" ")
+        .toLowerCase();
+
+
+      return (
+
+        (!q ||
+          searchable.includes(q))
+
+        &&
+
+        (!type ||
+          data.type===type)
+
+        &&
+
+        (!brand ||
+          data.brand===brand)
+
+        &&
+
+        (!rare ||
+          data.rare===rare)
+
+        &&
+
+        (
+          !status ||
+
+          (
+            status==="yes"
+            ?
+            x.count>0
+            :
+            !x.count
+          )
+        )
+
+      );
+
+    });
+
+
+  $("grid").innerHTML =
+    list.length
+
+    ?
+
+    list
+      .map(c=>{
+
+        const x =
+          collection[c.id] || {};
+
+        const d =
+          {
+            ...c,
+            ...x
+          };
+
+
+        let imageHTML="";
+
+
+        /*
+          所持カード
+          → 自分の写真
+        */
+
+        if(d.photo){
+
+          imageHTML = `
+
+            <img
+              class="ownedPhoto"
+              src="${d.photo}"
+              alt="${d.id}"
+            >
+
+          `;
+
+        }
+
+        /*
+          未所持
+          → 薄い図鑑カード
+        */
+
+        else{
+
+          imageHTML = `
+
+            <div class="previewCard">
+
+              <div class="previewStar">
+                ✨
+              </div>
+
+              <div class="previewId">
+                ${d.id}
+              </div>
+
+              <div class="previewRare">
+                ${d.rare || "—"}
+              </div>
+
+              <div class="lock">
+                🔒 未所持
+              </div>
+
+            </div>
+
+          `;
+
+        }
+
+
+        return `
+
+          <article class="card">
+
+            <div class="thumb">
+
+              ${imageHTML}
+
+            </div>
+
+
+            <div class="info">
+
+              <div class="code">
+
+                ${d.id}
+               　
+                ${d.rare || "—"}
+
+              </div>
+
+
+              <div class="name">
+
+                ${
+                  d.name ||
+                  "コーデ名未設定"
+                }
+
+              </div>
+
+
+              <div class="meta">
+
+                ${
+                  d.type ||
+                  "タイプ未設定"
+                }
+
+                /
+
+                ${
+                  d.brand ||
+                  "ブランド未設定"
+                }
+
+                <br>
+
+                ${d.set}
+
+              </div>
+
+
+              <div class="own">
+
+                <span
+                  class="badge ${
+                    x.count
+                    ? "yes"
+                    : ""
+                  }"
+                >
+
+                  ${
+                    x.count
+                    ? "✓ 所持"
+                    : "🔒 未所持"
+                  }
+
+                </span>
+
+
+                <b>
+
+                  ${x.count || 0}枚
+
+                </b>
+
+              </div>
+
+
+              <button
+                class="primary"
+                style="width:100%;margin-top:7px"
+                onclick="editCard('${d.id}')"
+              >
+
+                ${
+                  x.count
+                  ? "✎ 編集"
+                  : "＋ このカードを登録"
+                }
+
+              </button>
+
+
+              ${
+                !x.count
+
+                ?
+
+                `
+                <a
+                  class="officialLink"
+                  href="https://dcd.aikatsu.com/encore/cardlist/?display=1&search=true&series=629001&sort=1"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  公式カードリストを見る ↗
+                </a>
+                `
+
+                :
+
+                ""
+
+              }
+
+            </div>
+
+          </article>
+
+        `;
+
+      })
+      .join("")
+
+    :
+
+    `
+
+      <div class="empty">
+
+        条件に一致するカードがありません
+
+      </div>
+
+    `;
+
+
+  /*
+    STATS
+  */
+
+  const n =
+    Object.values(collection)
+      .filter(
+        x =>
+          x.count > 0
+      )
+      .length;
+
+
+  $("owned")
+    .textContent=n;
+
+
+  $("rate")
+    .textContent =
+      Math.round(
+        n / cards.length * 100
+      ) + "%";
+
 }
-function openAdd(){editingId=null;$('modalTitle').textContent='📷 カードを登録';clearForm();$('modal').classList.add('open')}
-function editCard(id){editingId=id;let x=collection[id]||{};$('modalTitle').textContent='✎ カードを編集';clearForm();$('cardId').value=id;$('cardName').value=x.name||'';$('cardType').value=x.type||'';$('cardBrand').value=x.brand||'';$('cardRare').value=x.rare||'';$('memo').value=x.memo||'';photoData=x.photo||'';if(photoData)$('preview').innerHTML=`<img src="${photoData}">`;$('modal').classList.add('open')}
-function clearForm(){photoData='';$('preview').textContent='ここにカード写真が表示されます';['cardId','cardName','memo'].forEach(id=>$(id).value='');['cardType','cardBrand','cardRare'].forEach(id=>$(id).value='');$('matches').innerHTML=''}
-function closeModal(){$('modal').classList.remove('open')}
-$('photoFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>compress(r.result).then(d=>{photoData=d;$('preview').innerHTML=`<img src="${d}">`});r.readAsDataURL(f)}
-function compress(src){return new Promise(res=>{const im=new Image();im.onload=()=>{let w=im.width,h=im.height,max=1000;if(w>max){h*=max/w;w=max}if(h>max){w*=max/h;h=max}const c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(im,0,0,w,h);res(c.toDataURL('image/jpeg',.78))};im.src=src})}
+
+
+/* =========================
+   ADD
+========================= */
+
+function openAdd(){
+
+  editingId=null;
+
+  $("modalTitle")
+    .textContent =
+      "📷 カードを登録";
+
+  clearForm();
+
+  $("modal")
+    .classList
+    .add("open");
+
+}
+
+
+/* =========================
+   EDIT
+========================= */
+
+function editCard(id){
+
+  editingId=id;
+
+  const x =
+    collection[id] || {};
+
+
+  $("modalTitle")
+    .textContent =
+      x.count
+      ?
+      "✎ カードを編集"
+      :
+      "＋ カードを登録";
+
+
+  clearForm();
+
+
+  $("cardId")
+    .value=id;
+
+
+  $("cardName")
+    .value=x.name || "";
+
+
+  $("cardType")
+    .value=x.type || "";
+
+
+  $("cardBrand")
+    .value=x.brand || "";
+
+
+  $("cardRare")
+    .value=
+      x.rare ||
+      cards.find(
+        c=>c.id===id
+      )?.rare ||
+      "";
+
+
+  $("memo")
+    .value=x.memo || "";
+
+
+  photoData =
+    x.photo || "";
+
+
+  if(photoData){
+
+    $("preview")
+      .innerHTML =
+
+      `<img src="${photoData}">`;
+
+  }
+
+
+  $("modal")
+    .classList
+    .add("open");
+
+}
+
+
+/* =========================
+   CLEAR FORM
+========================= */
+
+function clearForm(){
+
+  photoData="";
+
+
+  $("preview")
+    .textContent =
+      "ここにカード写真が表示されます";
+
+
+  [
+    "cardId",
+    "cardName",
+    "memo"
+  ]
+  .forEach(
+    id =>
+      $(id).value=""
+  );
+
+
+  [
+    "cardType",
+    "cardBrand",
+    "cardRare"
+  ]
+  .forEach(
+    id =>
+      $(id).value=""
+  );
+
+
+  $("matches")
+    .innerHTML="";
+
+}
+
+
+/* =========================
+   CLOSE
+========================= */
+
+function closeModal(){
+
+  $("modal")
+    .classList
+    .remove("open");
+
+}
+
+
+/* =========================
+   PHOTO
+========================= */
+
+$("photoFile").onchange =
+  e=>{
+
+    const f =
+      e.target.files[0];
+
+    if(!f)
+      return;
+
+
+    const r =
+      new FileReader();
+
+
+    r.onload =
+      ()=>{
+
+        compress(
+          r.result
+        )
+        .then(
+          d=>{
+
+            photoData=d;
+
+            $("preview")
+              .innerHTML =
+                `<img src="${d}">`;
+
+          }
+        );
+
+      };
+
+
+    r.readAsDataURL(f);
+
+  };
+
+
+/* =========================
+   COMPRESS PHOTO
+========================= */
+
+function compress(src){
+
+  return new Promise(
+    resolve=>{
+
+      const im =
+        new Image();
+
+
+      im.onload =
+        ()=>{
+
+          let w=im.width;
+          let h=im.height;
+
+          const max=1000;
+
+
+          if(w>max){
+
+            h *= max/w;
+            w=max;
+
+          }
+
+
+          if(h>max){
+
+            w *= max/h;
+            h=max;
+
+          }
+
+
+          const c =
+            document
+              .createElement(
+                "canvas"
+              );
+
+
+          c.width=w;
+          c.height=h;
+
+
+          c.getContext("2d")
+            .drawImage(
+              im,
+              0,
+              0,
+              w,
+              h
+            );
+
+
+          resolve(
+            c.toDataURL(
+              "image/jpeg",
+              .78
+            )
+          );
+
+        };
+
+
+      im.src=src;
+
+    }
+  );
+
+}
+
+
+/* =========================
+   SAVE CARD
+========================= */
+
 function saveCard(){
- let id=$('cardId').value.trim().toUpperCase().replace(/\s/g,'');if(!id){alert('カード番号を入力してください');return}
- let old=collection[id]||{};collection[id]={count:old.count||1,name:$('cardName').value.trim()||old.name||'コーデ名未設定',type:$('cardType').value,brand:$('cardBrand').value,rare:$('cardRare').value||old.rare||'',memo:$('memo').value.trim(),photo:photoData||old.photo||''};save();closeModal();render();
+
+  let id =
+    $("cardId")
+      .value
+      .trim()
+      .toUpperCase()
+      .replace(/\s/g,"");
+
+
+  if(!id){
+
+    alert(
+      "カード番号を入力してください"
+    );
+
+    return;
+
+  }
+
+
+  const base =
+    cards.find(
+      c=>c.id===id
+    );
+
+
+  if(!base){
+
+    alert(
+      "この図鑑に存在しないカード番号です。\n例：E1-01"
+    );
+
+    return;
+
+  }
+
+
+  const old =
+    collection[id] || {};
+
+
+  collection[id] = {
+
+    count:
+      old.count || 1,
+
+    name:
+      $("cardName")
+        .value
+        .trim()
+
+      ||
+
+      base.name,
+
+    type:
+      $("cardType").value,
+
+    brand:
+      $("cardBrand").value,
+
+    rare:
+      $("cardRare").value
+      ||
+      base.rare,
+
+    memo:
+      $("memo")
+        .value
+        .trim(),
+
+    photo:
+      photoData
+      ||
+      old.photo
+      ||
+      ""
+
+  };
+
+
+  save();
+
+  closeModal();
+
+  render();
+
 }
+
+
+/* =========================
+   OCR
+========================= */
+
 async function runOCR(){
- if(!photoData){alert('先にカード写真を選んでください');return}
- const btn=$('ocrBtn');btn.disabled=true;btn.textContent='⏳ OCR中…';
- try{
-   if(!window.Tesseract){await new Promise((resolve,reject)=>{let s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js';s.onload=resolve;s.onerror=reject;document.head.appendChild(s)})}
-   const {data}=await Tesseract.recognize(photoData,'eng',{logger:m=>{if(m.status==='recognizing text')btn.textContent=`⏳ OCR ${Math.round(m.progress*100)}%`;}});
-   const text=data.text.toUpperCase().replace(/[\s_]/g,'-');const m=text.match(/(?:E|P)[0-9]{0,2}-[0-9]{1,3}/);
-   if(m){$('cardId').value=m[0];showMatches(m[0])}else{alert('カード番号を見つけられませんでした。カード番号を手入力して登録できます。')}
- }catch(e){alert('OCRの読み込みに失敗しました。HTTPS公開後にもう一度試してください。')}finally{btn.disabled=false;btn.textContent='🔎 OCRで番号を探す'}
+
+  if(!photoData){
+
+    alert(
+      "先にカード写真を選んでください"
+    );
+
+    return;
+
+  }
+
+
+  const btn =
+    $("ocrBtn");
+
+
+  btn.disabled=true;
+
+  btn.textContent=
+    "⏳ OCR中…";
+
+
+  try{
+
+    if(!window.Tesseract){
+
+      await new Promise(
+        (resolve,reject)=>{
+
+          const s =
+            document
+              .createElement(
+                "script"
+              );
+
+
+          s.src=
+            "https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js";
+
+
+          s.onload=resolve;
+
+          s.onerror=reject;
+
+
+          document.head
+            .appendChild(s);
+
+        }
+      );
+
+    }
+
+
+    const {data} =
+      await Tesseract.recognize(
+        photoData,
+        "eng",
+        {
+          logger:m=>{
+
+            if(
+              m.status===
+              "recognizing text"
+            ){
+
+              btn.textContent=
+                `⏳ OCR ${Math.round(
+                  m.progress*100
+                )}%`;
+
+            }
+
+          }
+
+        }
+      );
+
+
+    const text =
+      data.text
+        .toUpperCase()
+        .replace(
+          /[\s_]/g,
+          "-"
+        );
+
+
+    const m =
+      text.match(
+        /(?:E|P)[0-9]{0,2}-[0-9]{1,3}/
+      );
+
+
+    if(m){
+
+      $("cardId")
+        .value=m[0];
+
+      showMatches(
+        m[0]
+      );
+
+    }else{
+
+      alert(
+        "カード番号を見つけられませんでした。\nカード番号を手入力して登録できます。"
+      );
+
+    }
+
+
+  }catch(e){
+
+    alert(
+      "OCRの読み込みに失敗しました。\nカード番号を手入力してください。"
+    );
+
+  }finally{
+
+    btn.disabled=false;
+
+    btn.textContent=
+      "🔎 OCRで番号を探す";
+
+  }
+
 }
-function showMatches(q){let s=q.toUpperCase();let a=cards.filter(c=>c.id.includes(s)||s.includes(c.id));$('matches').innerHTML=a.map(c=>`<div class="result" onclick="pick('${c.id}')"><b>${c.id}</b> / ${c.rare}<br><span class="small">${c.name}</span></div>`).join('')}
-function pick(id){$('cardId').value=id;let c=cards.find(x=>x.id===id);if(c)$('cardRare').value=c.rare||''}
-function exportData(){const blob=new Blob([JSON.stringify(collection,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='aikatsu-encore-collection.json';a.click();URL.revokeObjectURL(a.href)}
-$('importFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{collection=JSON.parse(r.result);save();render();alert('バックアップを読み込みました')}catch{alert('JSONファイルを読み込めませんでした')}};r.readAsText(f)}
-$('q').oninput=render;['type','brand','rare','status'].forEach(id=>$(id).onchange=render);render();
+
+
+/* =========================
+   OCR MATCH
+========================= */
+
+function showMatches(q){
+
+  const s =
+    q.toUpperCase();
+
+
+  const a =
+    cards.filter(
+      c =>
+        c.id.includes(s) ||
+        s.includes(c.id)
+    );
+
+
+  $("matches")
+    .innerHTML =
+
+    a
+      .map(
+        c=>`
+
+          <div
+            class="result"
+            onclick="pick('${c.id}')"
+          >
+
+            <b>
+              ${c.id}
+            </b>
+
+            /
+
+            ${c.rare}
+
+            <br>
+
+            <span class="small">
+              ${c.name}
+            </span>
+
+          </div>
+
+        `
+      )
+      .join("");
+
+}
+
+
+/* =========================
+   PICK CARD
+========================= */
+
+function pick(id){
+
+  $("cardId")
+    .value=id;
+
+
+  const c =
+    cards.find(
+      x=>x.id===id
+    );
+
+
+  if(c){
+
+    $("cardRare")
+      .value=
+        c.rare || "";
+
+  }
+
+}
+
+
+/* =========================
+   BACKUP EXPORT
+========================= */
+
+function exportData(){
+
+  const blob =
+    new Blob(
+      [
+        JSON.stringify(
+          collection,
+          null,
+          2
+        )
+      ],
+      {
+        type:
+          "application/json"
+      }
+    );
+
+
+  const a =
+    document
+      .createElement("a");
+
+
+  a.href =
+    URL.createObjectURL(
+      blob
+    );
+
+
+  a.download =
+    "aikatsu-encore-collection.json";
+
+
+  a.click();
+
+
+  URL.revokeObjectURL(
+    a.href
+  );
+
+}
+
+
+/* =========================
+   BACKUP IMPORT
+========================= */
+
+$("importFile").onchange =
+  e=>{
+
+    const f =
+      e.target.files[0];
+
+    if(!f)
+      return;
+
+
+    const r =
+      new FileReader();
+
+
+    r.onload =
+      ()=>{
+
+        try{
+
+          collection =
+            JSON.parse(
+              r.result
+            );
+
+
+          save();
+
+          render();
+
+
+          alert(
+            "バックアップを読み込みました！"
+          );
+
+
+        }catch{
+
+          alert(
+            "JSONファイルを読み込めませんでした。"
+          );
+
+        }
+
+      };
+
+
+    r.readAsText(f);
+
+  };
+
+
+/* =========================
+   FILTER EVENTS
+========================= */
+
+$("q")
+  .oninput=render;
+
+
+[
+  "type",
+  "brand",
+  "rare",
+  "status"
+]
+.forEach(
+  id =>
+    $(id)
+      .onchange=render
+);
+
+
+/* =========================
+   START
+========================= */
+
+render();
+
 </script>
-</body></html>
+
+</body>
+</html>
